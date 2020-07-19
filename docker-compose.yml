@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  fluentd:
+    build: ./fluentd
+    volumes:
+      - ./fluentd/conf:/fluentd/etc
+    ports:
+      - "24224:24224"
+      - "24224:24224/udp"
+    networks: 
+      - your-network
+
+networks:
+  your-network:
+    external: true
